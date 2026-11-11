@@ -1,10 +1,14 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { DM_Sans, Manrope } from 'next/font/google'
 import './globals.css'
+
+const dmSans = DM_Sans({ subsets: ['latin', 'latin-ext'], variable: '--font-dm-sans' })
+const manrope = Manrope({ subsets: ['latin', 'latin-ext'], variable: '--font-manrope' })
 
 export const metadata: Metadata = {
   title: 'Lingohaus | Trung tâm Ngoại ngữ & Luyện thi Quốc tế',
-  description: 'Chinh phục tiếng Anh cùng Lingohaus — lộ trình cá nhân hóa, giáo viên chuẩn quốc tế, IELTS, giao tiếp và tiếng Anh trẻ em.',
+  description: 'Tìm lộ trình tiếng Anh phù hợp cho mọi độ tuổi tại Lingohaus: mầm non, tiểu học, THCS, THPT, IELTS, người đi làm và doanh nghiệp.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -37,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className="antialiased">
+      <body className={`${dmSans.variable} ${manrope.variable} antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
